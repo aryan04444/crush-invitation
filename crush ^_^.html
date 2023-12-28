@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 0;
+      overflow: hidden;
+      background: url('your-background-gif-url') fixed;
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #f70808;
+    }
+
+    #question {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    #options {
+      display: flex;
+      justify-content: center;
+    }
+
+    .option {
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      border: 2px solid #fff;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .option:hover {
+      background-color: rgba(250, 90, 157, 0.8);
+    }
+
+    #datePickerContainer {
+      display: none;
+      margin-top: 20px;
+    }
+
+    #datePicker {
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
+  <script>
+    function showDatePicker() {
+      document.getElementById('options').style.display = 'none';
+      document.getElementById('datePickerContainer').style.display = 'block';
+    }
+  </script>
+</head>
+<body>
+  <div id="question">Mere sath date per chalogi ?</div>
+  <div id="options">
+    <div class="option" onclick="showDatePicker()">Yes</div>
+    <div id="noOption" class="option" onclick="runAway()">No</div>
+  </div>
+
+  <div id="datePickerContainer">
+    <label for="datePicker">Select a date:</label>
+    <input type="date" id="datePicker">
+  </div>
+
+  <script>
+    function runAway() {
+      var element = document.getElementById('noOption');
+      var xPos = Math.random() * window.innerWidth;
+      var yPos = Math.random() * window.innerHeight;
+
+      element.style.position = 'absolute';
+      element.style.left = xPos + 'px';
+      element.style.top = yPos + 'px';
+    }
+  </script>
+</body>
+</html>
